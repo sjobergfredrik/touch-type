@@ -1,0 +1,32 @@
+// This is your Prisma schema file
+
+// Define the datasource
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Define the generator
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Define your models
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  password      String
+  name          String?
+  typingSessions TypingSession[]
+}
+
+model TypingSession {
+  id          Int      @id @default(autoincrement())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  wpm         Int
+  accuracy    Float
+  text        String
+  duration    Int
+  createdAt   DateTime @default(now())
+}
