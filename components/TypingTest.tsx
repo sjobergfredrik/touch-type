@@ -43,7 +43,7 @@ export default function TypingTest({ onComplete }: TypingTestProps) {
     if (newInput.length === text.length) {
       const endTime = Date.now()
       const duration = (endTime - (startTime || endTime)) / 1000 // duration in seconds
-      const correctChars = [...newInput].filter((char, i) => char === text[i]).length
+      const correctChars = Array.from(newInput).filter((char, i) => char === text[i]).length
       const accuracy = (correctChars / text.length) * 100
       const wpm = Math.round((text.length / 5) / (duration / 60))
 
