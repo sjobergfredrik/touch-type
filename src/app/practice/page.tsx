@@ -38,7 +38,7 @@ export default function PracticePage() {
         },
         body: JSON.stringify({
           ...results,
-          userId: session.user?.id,
+          userId: (session as any).user?.id,
         }),
       })
       
