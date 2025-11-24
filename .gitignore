@@ -38,3 +38,6 @@ next-env.d.ts
 # IDE
 .vscode/
 .idea/
+
+# External tools (not part of this project)
+browser-tools-mcp/

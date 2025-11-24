@@ -12,4 +12,4 @@ export async function POST(request: Request) {
     data
   })
   return NextResponse.json(user)
-} 
+}
