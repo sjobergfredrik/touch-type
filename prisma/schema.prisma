@@ -17,6 +17,7 @@ model User {
   email         String    @unique
   password      String
   name          String?
+  interests     Json      @default("{}")
   typingSessions TypingSession[]
 }
 
